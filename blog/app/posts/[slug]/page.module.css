@@ -1,0 +1,74 @@
+/* Blog Post Detail Page Styles */
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+.main {
+  /* Layout */
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  
+  /* Smooth transitions for theme switching */
+  transition: background-color var(--duration-normal) var(--ease-in-out);
+}
+
+/* ============================================
+   PAGE TRANSITION WRAPPER
+   ============================================ */
+.pageTransition {
+  /* Initial state for page transition animation */
+  opacity: 0;
+  transform: translateY(30px);
+  
+  /* Page transition animation - triggers on mount */
+  animation: pageEnter var(--duration-slow) var(--ease-out) forwards;
+  
+  /* Small delay for smooth navigation transition */
+  animation-delay: 100ms;
+}
+
+/* ============================================
+   PAGE TRANSITION ANIMATION
+   ============================================ */
+
+/**
+ * Page Enter Animation
+ * Creates a smooth fade-in and slide-up effect when navigating to post pages
+ * This provides visual feedback during page transitions
+ * 
+ * Requirements: 5.4
+ */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY - REDUCED MOTION
+   ============================================ */
+
+/**
+ * Respect user's motion preferences for accessibility
+ * Disables page transition animations for users who prefer reduced motion
+ */
+@media (prefers-reduced-motion: reduce) {
+  .pageTransition {
+    animation: pageFadeIn var(--duration-fast) ease forwards;
+    animation-delay: 0ms;
+  }
+  
+  @keyframes pageFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

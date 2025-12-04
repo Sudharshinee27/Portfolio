@@ -1,0 +1,350 @@
+.projectsSection {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+  color: #1f2937;
+  background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  padding: 20px 0;
+}
+
+/* 
+  Card wrapper with fade-in animation
+  Uses opacity and transform for smooth entrance when scrolling into view
+*/
+.cardWrapper {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: none;
+  
+  /* Performance optimization: Prepare for animation */
+  will-change: opacity, transform;
+}
+
+.cardWrapper.visible {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+  3D flip card container
+  - perspective: Creates 3D space for child elements
+  - Higher values = less dramatic perspective effect
+*/
+.card {
+  perspective: 1000px;
+  height: 400px;
+  cursor: pointer;
+}
+
+/*
+  Inner container that performs the actual rotation
+  - transform-style: preserve-3d allows children to exist in 3D space
+  - transition: smooth rotation animation over 0.6 seconds
+*/
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  
+  /* Performance optimization: Use will-change for 3D transform */
+  /* GPU-accelerated rotation for smooth flip animation */
+  will-change: transform;
+}
+
+/*
+  Hover and focus effects: Rotate the card 180 degrees on Y-axis
+  This reveals the back face while hiding the front face
+  Supports both mouse hover and keyboard focus for accessibility
+*/
+.card:hover .cardInner,
+.card:focus-within .cardInner {
+  transform: rotateY(180deg);
+}
+
+/*
+  Scale and shadow transitions on hover/focus for depth effect
+  Applied to the entire card wrapper for lift effect
+  Supports both mouse and keyboard interaction
+*/
+.card:hover,
+.card:focus-within {
+  transform: scale(1.02);
+}
+
+.cardWrapper:hover,
+.cardWrapper:focus-within {
+  filter: drop-shadow(0 20px 40px rgba(99, 102, 241, 0.3));
+}
+
+/* Focus-visible styles for keyboard navigation */
+.card:focus-visible {
+  outline: 3px solid #6366f1;
+  outline-offset: 5px;
+  border-radius: 20px;
+}
+
+/*
+  Shared styles for both card faces
+  - backface-visibility: hidden prevents the back of faces from showing through
+  - position: absolute allows both faces to occupy the same space
+*/
+.cardFront,
+.cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+/*
+  Front face styling
+  - Default visible state (rotateY(0deg))
+  - Gradient background for visual appeal
+*/
+.cardFront {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/*
+  Back face styling
+  - Pre-rotated 180 degrees so it faces correctly when card flips
+  - White background for readability of detailed content
+*/
+.cardBack {
+  background: white;
+  color: #1f2937;
+  transform: rotateY(180deg);
+  overflow-y: auto;
+}
+
+.projectTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.projectDescription {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.95;
+  margin-bottom: 20px;
+}
+
+.hoverHint {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: auto;
+  padding-top: 20px;
+  font-style: italic;
+}
+
+.detailsSection {
+  margin-bottom: 24px;
+}
+
+.detailsHeading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #6366f1;
+  border-bottom: 2px solid #6366f1;
+  padding-bottom: 6px;
+}
+
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.techTag {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.techTag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(99, 102, 241, 0.3);
+}
+
+.highlightsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.highlightsList li {
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.highlightsList li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .projectsSection {
+    padding: 60px 16px;
+  }
+
+  .sectionTitle {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .card {
+    height: 380px;
+  }
+
+  .projectTitle {
+    font-size: 1.5rem;
+  }
+
+  .projectDescription {
+    font-size: 1rem;
+  }
+  
+  /* Simplify 3D effects on mobile for better performance */
+  .card {
+    perspective: 800px;
+  }
+  
+  /* Reduce padding on mobile */
+  .cardFront,
+  .cardBack {
+    padding: 24px;
+  }
+  
+  /* Optimize touch interactions */
+  .card:active .cardInner {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .projectsSection {
+    padding: 40px 12px;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .projectsGrid {
+    gap: 24px;
+  }
+  
+  .card {
+    height: 360px;
+  }
+  
+  .cardFront,
+  .cardBack {
+    padding: 20px;
+  }
+  
+  .projectTitle {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+  }
+  
+  .projectDescription {
+    font-size: 0.95rem;
+  }
+  
+  .techTag {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+  
+  .highlightsList li {
+    font-size: 0.9rem;
+    padding: 6px 0;
+  }
+}
+
+/* Accessibility: Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .cardWrapper.visible {
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .cardInner {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  .techTag:hover {
+    transform: none;
+  }
+}

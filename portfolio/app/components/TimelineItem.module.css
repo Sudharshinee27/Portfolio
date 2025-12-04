@@ -1,0 +1,354 @@
+/**
+ * TimelineItem Styles
+ * 
+ * Layout Strategy:
+ * - Uses CSS Grid for vertical timeline structure
+ * - Alternating left/right positioning using grid-column placement
+ * - Central vertical line created with ::before pseudo-element
+ * - Timeline dots positioned absolutely at the center
+ * 
+ * Animation Strategy:
+ * - Items start with opacity 0 and translated position
+ * - When .visible class is added (via Intersection Observer), animations trigger
+ * - Left items slide in from left, right items slide in from right
+ * - Smooth transitions for all interactive states
+ */
+
+.timelineItem {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr; /* Left content | Dot space | Right content */
+  gap: 2rem;
+  margin-bottom: 3rem;
+  opacity: 0; /* Hidden by default, revealed when visible */
+  
+  /* Animation will be applied when .visible class is added */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Left-aligned timeline items */
+.timelineItem.left {
+  /* Content goes in the left column, dot in middle, right column empty */
+  transform: translateX(-50px); /* Start position for slide-in animation */
+}
+
+.timelineItem.left .content {
+  grid-column: 1; /* Place content in first column */
+  text-align: right; /* Align text to the right edge */
+}
+
+/* Right-aligned timeline items */
+.timelineItem.right {
+  /* Left column empty, dot in middle, content in right column */
+  transform: translateX(50px); /* Start position for slide-in animation */
+}
+
+.timelineItem.right .content {
+  grid-column: 3; /* Place content in third column */
+  text-align: left; /* Align text to the left edge */
+}
+
+/* Visible state - triggers animation */
+.timelineItem.visible {
+  opacity: 1;
+  transform: translateX(0); /* Slide to final position */
+}
+
+/**
+ * Timeline Dot
+ * - Positioned in the center column
+ * - Color-coded based on item type (experience vs education)
+ * - Pulse animation on hover for interactivity
+ */
+.timelineDot {
+  grid-column: 2; /* Always in the middle column */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Outer ring with border */
+  border: 4px solid var(--color-background);
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+/* Color coding for experience type */
+.timelineDot.experience {
+  background: var(--gradient-primary);
+  box-shadow: 0 0 0 2px var(--color-primary), 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+/* Color coding for education type */
+.timelineDot.education {
+  background: var(--gradient-secondary);
+  box-shadow: 0 0 0 2px var(--color-secondary), 0 4px 12px rgba(236, 72, 153, 0.3);
+}
+
+/* Inner dot for visual depth */
+.dotInner {
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* Hover effect on timeline dot */
+.timelineItem:hover .timelineDot {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 2px var(--color-primary), 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.timelineItem:hover .timelineDot.education {
+  box-shadow: 0 0 0 2px var(--color-secondary), 0 6px 20px rgba(236, 72, 153, 0.4);
+}
+
+/**
+ * Content Card
+ * - Contains all text content for the timeline item
+ * - Elevated card design with shadow
+ * - Smooth hover effects
+ */
+.content {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--color-border);
+}
+
+/* Hover effect on content card */
+.timelineItem:hover .content {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Header section with title, organization, and period */
+.header {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+  line-height: var(--line-height-tight);
+}
+
+.organization {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.period {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-top: 0.5rem;
+}
+
+/* Description list styling */
+.descriptionList {
+  margin: 1rem 0;
+  padding-left: 0;
+}
+
+.descriptionItem {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Custom bullet points */
+.descriptionItem::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 1.2em;
+}
+
+/* Achievements section (optional) */
+.achievements {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.achievementsTitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-success);
+  margin-bottom: 0.75rem;
+}
+
+.achievementsList {
+  padding-left: 0;
+}
+
+.achievementItem {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+}
+
+/* Achievement bullet points with success color */
+.achievementItem::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-weight: var(--font-weight-bold);
+}
+
+/**
+ * Responsive Design - Mobile
+ * On mobile, stack timeline vertically without alternating sides
+ */
+@media (max-width: 768px) {
+  .timelineItem {
+    grid-template-columns: 40px 1fr; /* Dot | Content */
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* All items align to the right of the dot on mobile */
+  .timelineItem.left .content,
+  .timelineItem.right .content {
+    grid-column: 2;
+    text-align: left;
+  }
+  
+  .timelineDot {
+    grid-column: 1;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .dotInner {
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Simplified animations for mobile */
+  .timelineItem.left,
+  .timelineItem.right {
+    transform: translateX(-30px);
+  }
+  
+  .content {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .organization {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .timelineItem {
+    grid-template-columns: 32px 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .timelineDot {
+    width: 28px;
+    height: 28px;
+    border: 3px solid var(--color-background);
+  }
+  
+  .dotInner {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .content {
+    padding: 0.75rem;
+  }
+  
+  .header {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  
+  .title {
+    font-size: var(--font-size-base);
+    margin-bottom: 0.375rem;
+  }
+  
+  .organization {
+    font-size: var(--font-size-sm);
+  }
+  
+  .period {
+    font-size: var(--font-size-xs);
+    padding: 0.2rem 0.5rem;
+  }
+  
+  .descriptionItem {
+    font-size: var(--font-size-sm);
+    padding-left: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .achievementItem {
+    font-size: var(--font-size-xs);
+    padding-left: 1.25rem;
+  }
+  
+  /* Simplify hover effects on mobile */
+  .timelineItem:hover .timelineDot {
+    transform: scale(1.05);
+  }
+  
+  .timelineItem:hover .content {
+    transform: translateY(-2px);
+  }
+}
+
+/**
+ * Accessibility - Reduced Motion
+ * Respect user's motion preferences
+ */
+@media (prefers-reduced-motion: reduce) {
+  .timelineItem {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .timelineItem.visible {
+    transition: none;
+  }
+  
+  .timelineDot,
+  .content {
+    transition: none;
+  }
+}

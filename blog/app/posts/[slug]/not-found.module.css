@@ -1,0 +1,255 @@
+/* Not Found Page Styles */
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+.main {
+  /* Layout */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-primary);
+  padding: var(--spacing-xl);
+  
+  /* Smooth transitions for theme switching */
+  transition: background-color var(--duration-normal) var(--ease-in-out);
+}
+
+/* ============================================
+   CONTENT CONTAINER
+   ============================================ */
+.container {
+  /* Layout */
+  max-width: 600px;
+  width: 100%;
+  
+  /* Fade-in animation */
+  animation: fadeIn var(--duration-slow) var(--ease-out);
+}
+
+.content {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-lg);
+  
+  /* Styling */
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-3xl) var(--spacing-xl);
+  box-shadow: 0 4px 6px var(--shadow);
+  
+  /* Smooth transitions */
+  transition: 
+    background-color var(--duration-normal) var(--ease-in-out),
+    border-color var(--duration-normal) var(--ease-in-out),
+    box-shadow var(--duration-normal) var(--ease-in-out);
+}
+
+/* ============================================
+   ICON
+   ============================================ */
+.iconWrapper {
+  /* Styling */
+  color: var(--accent);
+  
+  /* Scale-in animation */
+  animation: scaleIn var(--duration-normal) var(--ease-out);
+  animation-delay: 200ms;
+  animation-fill-mode: backwards;
+}
+
+.icon {
+  /* Smooth transitions */
+  transition: color var(--duration-normal) var(--ease-in-out);
+}
+
+/* ============================================
+   TITLE
+   ============================================ */
+.title {
+  /* Typography */
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0;
+  
+  /* Slide-in animation */
+  animation: slideInUp var(--duration-normal) var(--ease-out);
+  animation-delay: 300ms;
+  animation-fill-mode: backwards;
+  
+  /* Smooth transitions */
+  transition: color var(--duration-normal) var(--ease-in-out);
+}
+
+/* ============================================
+   DESCRIPTION
+   ============================================ */
+.description {
+  /* Typography */
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+  
+  /* Slide-in animation */
+  animation: slideInUp var(--duration-normal) var(--ease-out);
+  animation-delay: 400ms;
+  animation-fill-mode: backwards;
+  
+  /* Smooth transitions */
+  transition: color var(--duration-normal) var(--ease-in-out);
+}
+
+/* ============================================
+   HOME LINK
+   ============================================ */
+.homeLink {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  
+  /* Styling */
+  padding: var(--spacing-md) var(--spacing-xl);
+  background-color: var(--accent);
+  color: white;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  
+  /* Slide-in animation */
+  animation: slideInUp var(--duration-normal) var(--ease-out);
+  animation-delay: 500ms;
+  animation-fill-mode: backwards;
+  
+  /* Smooth transitions */
+  transition: 
+    background-color var(--duration-fast) var(--ease-in-out),
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.homeLink:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-lg);
+}
+
+.homeLink:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px var(--shadow);
+}
+
+.arrowIcon {
+  /* Smooth transitions */
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.homeLink:hover .arrowIcon {
+  transform: translateX(-4px);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .content {
+    padding: var(--spacing-2xl) var(--spacing-lg);
+  }
+  
+  .title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .description {
+    font-size: var(--font-size-base);
+  }
+  
+  .iconWrapper svg {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY - REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .container,
+  .iconWrapper,
+  .title,
+  .description,
+  .homeLink {
+    animation: simpleFadeIn var(--duration-fast) ease;
+  }
+  
+  .homeLink:hover {
+    transform: none;
+  }
+  
+  .homeLink:hover .arrowIcon {
+    transform: none;
+  }
+  
+  @keyframes simpleFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+/* ============================================
+   FOCUS STYLES FOR KEYBOARD NAVIGATION
+   ============================================ */
+.homeLink:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}

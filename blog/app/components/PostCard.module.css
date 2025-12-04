@@ -1,0 +1,322 @@
+/* PostCard Component Styles */
+
+/* ============================================
+   CARD LINK WRAPPER
+   ============================================ */
+.cardLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================
+   CARD CONTAINER
+   ============================================ */
+.card {
+  /* Layout */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  
+  /* Styling */
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  
+  /* Shadow for depth */
+  box-shadow: 0 1px 3px var(--shadow);
+  
+  /* Initial state for fade-in animation */
+  opacity: 0;
+  transform: translateY(20px);
+  
+  /* Smooth transitions for hover effects */
+  transition: 
+    transform var(--duration-normal) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out),
+    opacity var(--duration-slow) var(--ease-out);
+  
+  /* Performance optimization for animations */
+  will-change: transform, box-shadow;
+}
+
+/* Visible state - triggered by Intersection Observer */
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   HOVER EFFECTS - LIFT ANIMATION
+   ============================================ */
+.card:hover {
+  /* Lift effect using transform */
+  transform: translateY(-8px);
+  
+  /* Enhanced shadow for lifted state */
+  box-shadow: 0 12px 24px var(--shadow-lg);
+  
+  /* Subtle border color change */
+  border-color: var(--accent);
+}
+
+/* Active state for click feedback */
+.card:active {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px var(--shadow);
+}
+
+/* ============================================
+   CATEGORY BADGE
+   ============================================ */
+.categoryBadge {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  
+  /* Styling */
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--accent);
+  color: white;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+  
+  /* Smooth transitions for theme switching */
+  transition: 
+    background-color var(--duration-normal) var(--ease-in-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+/* Hover effect on category badge */
+.card:hover .categoryBadge {
+  transform: scale(1.05);
+  background-color: var(--accent-hover);
+}
+
+/* ============================================
+   POST TITLE
+   ============================================ */
+.title {
+  /* Typography */
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.3;
+  color: var(--text-primary);
+  
+  /* Spacing */
+  margin: 0;
+  
+  /* Smooth color transition for theme switching */
+  transition: color var(--duration-normal) var(--ease-in-out);
+}
+
+/* Hover effect on title */
+.card:hover .title {
+  color: var(--accent);
+}
+
+/* ============================================
+   POST EXCERPT
+   ============================================ */
+.excerpt {
+  /* Typography */
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  
+  /* Spacing */
+  margin: 0;
+  
+  /* Limit to 3 lines with ellipsis */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  
+  /* Smooth color transition for theme switching */
+  transition: color var(--duration-normal) var(--ease-in-out);
+}
+
+/* ============================================
+   METADATA (DATE & READ TIME)
+   ============================================ */
+.metadata {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  
+  /* Typography */
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  
+  /* Spacing */
+  margin-top: auto;
+}
+
+.date,
+.readTime {
+  transition: color var(--duration-normal) var(--ease-in-out);
+}
+
+.separator {
+  color: var(--text-tertiary);
+}
+
+/* ============================================
+   READ MORE INDICATOR
+   ============================================ */
+.readMore {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  
+  /* Typography */
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--accent);
+  
+  /* Smooth transitions */
+  transition: 
+    color var(--duration-fast) var(--ease-in-out),
+    gap var(--duration-fast) var(--ease-out);
+}
+
+/* Hover effect - arrow slides right */
+.card:hover .readMore {
+  gap: var(--spacing-sm);
+  color: var(--accent-hover);
+}
+
+/* ============================================
+   ARROW ICON
+   ============================================ */
+.arrow {
+  /* Smooth transition for arrow movement */
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+/* Hover effect - arrow moves right */
+.card:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Mobile optimizations */
+@media (max-width: 639px) {
+  .card {
+    padding: var(--spacing-md);
+  }
+  
+  .title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .excerpt {
+    font-size: var(--font-size-sm);
+    -webkit-line-clamp: 2;
+  }
+  
+  .categoryBadge {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .metadata {
+    font-size: var(--font-size-xs);
+  }
+  
+  /* Simplify hover effects on mobile - use active state */
+  .card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .card {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .excerpt {
+    font-size: var(--font-size-xs);
+  }
+  
+  .readMore {
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* Tablet and up */
+@media (min-width: 640px) {
+  .card {
+    padding: var(--spacing-xl);
+  }
+  
+  .title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .excerpt {
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .card:hover {
+    /* More pronounced lift on larger screens */
+    transform: translateY(-12px);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY - REDUCED MOTION
+   ============================================ */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: opacity var(--duration-fast) ease;
+  }
+  
+  .card:hover {
+    transform: none;
+  }
+  
+  .card:hover .arrow {
+    transform: none;
+  }
+  
+  .card:hover .categoryBadge {
+    transform: none;
+  }
+}
+
+/* ============================================
+   FOCUS STYLES FOR KEYBOARD NAVIGATION
+   ============================================ */
+.cardLink:focus-visible .card {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-color: var(--accent);
+}

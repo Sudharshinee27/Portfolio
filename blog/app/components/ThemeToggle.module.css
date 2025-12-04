@@ -1,0 +1,242 @@
+/**
+ * ThemeToggle Component Styles
+ * 
+ * Provides smooth, animated transitions for the theme toggle button.
+ * Uses CSS variables from globals.css for consistent theming and timing.
+ * 
+ * Animation Strategy:
+ * - Icons are absolutely positioned to overlay each other
+ * - Transitions use transform (rotate + scale) and opacity for GPU acceleration
+ * - Button provides tactile feedback through scale transforms on interaction
+ * - All colors use CSS variables that automatically update when theme changes
+ * - Smooth color transitions are inherited from global * selector in globals.css
+ */
+
+/* ============================================
+   BUTTON CONTAINER STYLES
+   ============================================ */
+
+.themeToggle {
+  /* Layout */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Sizing - 44x44px meets WCAG touch target minimum */
+  width: 44px;
+  height: 44px;
+  
+  /* Visual styling using theme-aware CSS variables */
+  border-radius: var(--radius-md);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  
+  /* Interaction */
+  cursor: pointer;
+  
+  /**
+   * Transition Strategy:
+   * - Uses 'all' to catch background, border, transform, and shadow changes
+   * - Duration: var(--duration-normal) = 300ms for smooth but not sluggish feel
+   * - Easing: var(--ease-in-out) provides natural acceleration/deceleration
+   * - Color transitions are also applied globally via globals.css
+   */
+  transition: all var(--duration-normal) var(--ease-in-out);
+}
+
+/**
+ * Hover State
+ * 
+ * Provides visual feedback when user hovers over the button:
+ * - Background lightens/darkens slightly (via --bg-tertiary variable)
+ * - Scales up to 1.05x (5% larger) for a subtle "lift" effect
+ * - Transform is GPU-accelerated for smooth performance
+ */
+.themeToggle:hover {
+  background-color: var(--bg-tertiary);
+  transform: scale(1.05);
+}
+
+/**
+ * Active State (Button Press)
+ * 
+ * Provides tactile feedback when button is clicked:
+ * - Scales down to 0.95x (5% smaller) to simulate a "press" effect
+ * - Creates a satisfying click sensation
+ * - Overrides hover transform during click
+ */
+.themeToggle:active {
+  transform: scale(0.95);
+}
+
+/**
+ * Focus State (Keyboard Navigation)
+ * 
+ * Inherits focus-visible styles from globals.css:
+ * - 2px solid outline in accent color
+ * - 2px offset for clear visibility
+ * - Ensures keyboard users can see which element is focused
+ */
+.themeToggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   ICON BASE STYLES
+   ============================================ */
+
+/**
+ * Icon Base Styles
+ * 
+ * Both sun and moon icons share these base styles:
+ * - Absolutely positioned to overlay each other in the button center
+ * - 20x20px size provides good visibility without overwhelming the 44px button
+ * - Color uses --text-primary variable, which automatically updates with theme
+ * - Transitions handle opacity, rotation, and scale changes smoothly
+ */
+.icon {
+  /* Positioning - absolute allows icons to overlay */
+  position: absolute;
+  
+  /* Sizing */
+  width: 20px;
+  height: 20px;
+  
+  /* Color - uses theme-aware CSS variable */
+  color: var(--text-primary);
+  
+  /**
+   * Transition Configuration:
+   * - opacity: Fades icon in/out during theme switch
+   * - transform: Handles rotation (0deg to 180deg) and scale (1 to 0.5)
+   * - Duration: 300ms provides smooth but snappy animation
+   * - Easing: ease-in-out creates natural motion with acceleration and deceleration
+   * 
+   * Why these properties?
+   * - opacity and transform are GPU-accelerated for best performance
+   * - Avoiding transitions on properties like width, height, or position
+   * - This ensures 60fps animation even on lower-end devices
+   */
+  transition: opacity var(--duration-normal) var(--ease-in-out),
+              transform var(--duration-normal) var(--ease-in-out);
+}
+
+/* ============================================
+   ICON STATE STYLES
+   ============================================ */
+
+/**
+ * Visible Icon State
+ * 
+ * Applied to the icon representing the CURRENT theme:
+ * - opacity: 1 = fully visible
+ * - rotate(0deg) = icon is upright and not rotated
+ * - scale(1) = icon is at normal size
+ * 
+ * When theme switches, this icon will transition to the hidden state.
+ */
+.icon.visible {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/**
+ * Hidden Icon State
+ * 
+ * Applied to the icon representing the OPPOSITE theme:
+ * - opacity: 0 = fully transparent (invisible)
+ * - rotate(180deg) = icon has rotated half a turn
+ * - scale(0.5) = icon has shrunk to half size
+ * - pointer-events: none = prevents interaction with hidden icon
+ * 
+ * Animation Flow Example (Light to Dark):
+ * 1. User clicks button
+ * 2. Sun icon transitions from visible to hidden:
+ *    - Rotates from 0deg to 180deg (clockwise spin)
+ *    - Scales from 1 to 0.5 (shrinks)
+ *    - Fades from opacity 1 to 0 (disappears)
+ * 3. Moon icon transitions from hidden to visible:
+ *    - Rotates from 180deg to 0deg (counter-spin to upright)
+ *    - Scales from 0.5 to 1 (grows)
+ *    - Fades from opacity 0 to 1 (appears)
+ * 4. Both transitions happen simultaneously over 300ms
+ * 5. Result: Smooth spinning transition between icons
+ */
+.icon.hidden {
+  opacity: 0;
+  transform: rotate(180deg) scale(0.5);
+  pointer-events: none;
+}
+
+/**
+ * Icon-Specific Styles (Optional Enhancement)
+ * 
+ * These classes allow for icon-specific customizations if needed.
+ * Currently they don't add extra styles, but they're here for future enhancements
+ * like different rotation directions or timing for each icon.
+ */
+.sunIcon {
+  /* Sun-specific styles can be added here */
+  /* Example: transform-origin for different rotation center */
+}
+
+.moonIcon {
+  /* Moon-specific styles can be added here */
+  /* Example: different animation timing or rotation direction */
+}
+
+/* ============================================
+   ACCESSIBILITY - REDUCED MOTION
+   ============================================ */
+
+/**
+ * Reduced Motion Support
+ * 
+ * Respects user's motion preferences for accessibility.
+ * This is handled globally in globals.css with:
+ * @media (prefers-reduced-motion: reduce)
+ * 
+ * When enabled:
+ * - All animations are reduced to 0.01ms (essentially instant)
+ * - Icons still change, but without the spinning animation
+ * - Ensures users with vestibular disorders aren't affected
+ * - Maintains full functionality while respecting accessibility needs
+ */
+
+/* ============================================
+   MOBILE OPTIMIZATIONS
+   ============================================ */
+
+/* Mobile devices - ensure touch-friendly size */
+@media (max-width: 767px) {
+  .themeToggle {
+    /* Ensure minimum touch target size */
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  /* Simplify hover effects on mobile (use active instead) */
+  .themeToggle:hover {
+    transform: none;
+  }
+  
+  .themeToggle:active {
+    transform: scale(0.9);
+    background-color: var(--bg-tertiary);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .themeToggle {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+}

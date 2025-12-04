@@ -1,0 +1,438 @@
+/* Hero Component Styles with Animations */
+
+/* ============================================
+   HERO SECTION - Full viewport with animated gradient
+   ============================================ */
+.hero {
+  /* Full viewport height for impactful first impression */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding: var(--spacing-xl) var(--spacing-md);
+  
+  /* Animated gradient background using gradientShift keyframe */
+  /* The gradient moves smoothly across the background creating a dynamic effect */
+  background: var(--gradient-animated);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+  
+  /* Performance optimization: Use will-change for animated background-position */
+  /* This hints to the browser to optimize for this property change */
+  will-change: background-position;
+}
+
+/* ============================================
+   HERO CONTENT CONTAINER
+   ============================================ */
+.heroContent {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xl);
+  align-items: center;
+  z-index: var(--z-base);
+}
+
+/* Desktop layout: text on left, visual on right */
+@media (min-width: 1024px) {
+  .heroContent {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-2xl);
+  }
+}
+
+/* ============================================
+   HERO TEXT SECTION
+   ============================================ */
+.heroText {
+  color: white;
+  text-align: center;
+  flex: 1;
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .heroText {
+    text-align: left;
+    max-width: 600px;
+  }
+}
+
+/* Name heading with fade-in animation on component mount */
+.heroName {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-extrabold);
+  margin-bottom: var(--spacing-md);
+  
+  /* Visible by default */
+  opacity: 1;
+}
+
+@media (min-width: 640px) {
+  .heroName {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroName {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+/* ============================================
+   TITLE SECTION
+   ============================================ */
+.heroTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-lg);
+  color: rgba(255, 255, 255, 0.95);
+  
+  /* Visible by default */
+  opacity: 1;
+}
+
+@media (min-width: 640px) {
+  .heroTitle {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroTitle {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* Typewriter span - no animation, just display text */
+.typewriter {
+  display: inline-block;
+}
+
+/* ============================================
+   HERO DESCRIPTION
+   ============================================ */
+.heroDescription {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-xl);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  /* Visible by default */
+  opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  .heroDescription {
+    margin-left: 0;
+    margin-right: 0;
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* ============================================
+   CONTACT INFO WITH FLOATING ANIMATION
+   ============================================ */
+.contactInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  justify-content: center;
+  
+  /* Visible by default */
+  opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  .contactInfo {
+    justify-content: flex-start;
+  }
+}
+
+/* Individual contact items with hover effects */
+.contactItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-full);
+  color: white;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--duration-normal) var(--ease-in-out);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hover effect: scale up and brighten background */
+.contactItem:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Focus-visible styles for keyboard navigation */
+.contactItem:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================
+   HERO VISUAL - FLOATING PROFILE ELEMENT
+   ============================================ */
+.heroVisual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Visible by default */
+  opacity: 1;
+}
+
+/* Profile circle with floating animation */
+/* The float animation creates a gentle up-and-down motion for visual interest */
+.profileCircle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+  
+  /* Floating animation creates smooth vertical movement */
+  animation: float 3s var(--ease-in-out) infinite;
+  
+  /* Box shadow adds depth */
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.2),
+    inset 0 0 40px rgba(255, 255, 255, 0.1);
+  
+  /* Performance optimization: Use will-change for transform property */
+  /* GPU-accelerated animation for smooth floating effect */
+  will-change: transform;
+}
+
+@media (min-width: 640px) {
+  .profileCircle {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profileCircle {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Inner circle for additional depth */
+.profileInner {
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+/* Profile Image */
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform var(--duration-normal) var(--ease-in-out);
+}
+
+/* Profile emoji with scale animation on hover */
+.profileEmoji {
+  font-size: 80px;
+  transition: transform var(--duration-normal) var(--ease-in-out);
+  /* Performance optimization: Prepare for transform changes on hover */
+  will-change: transform;
+}
+
+@media (min-width: 640px) {
+  .profileEmoji {
+    font-size: 100px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profileEmoji {
+    font-size: 120px;
+  }
+}
+
+/* Hover effect on profile circle: scale up emoji */
+.profileCircle:hover .profileEmoji {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Hover effect on profile circle: scale up image */
+.profileCircle:hover .profileImage {
+  transform: scale(1.1);
+}
+
+/* ============================================
+   SCROLL INDICATOR WITH PULSE ANIMATION
+   ============================================ */
+.scrollIndicator {
+  position: absolute;
+  bottom: var(--spacing-xl);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: white;
+  
+  /* Visible by default */
+  opacity: 1;
+}
+
+.scrollText {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Animated arrow with pulse and bounce effect */
+.scrollArrow {
+  font-size: var(--font-size-2xl);
+  
+  /* Pulse animation draws attention to scroll indicator */
+  animation: pulse 2s var(--ease-in-out) infinite;
+  
+  /* Performance optimization: Optimize opacity animation */
+  will-change: opacity;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+/* Mobile: Stack content vertically */
+@media (max-width: 639px) {
+  .hero {
+    padding: var(--spacing-2xl) var(--spacing-md);
+    min-height: auto;
+    padding-top: var(--spacing-3xl);
+    padding-bottom: var(--spacing-3xl);
+  }
+  
+  .heroContent {
+    gap: var(--spacing-2xl);
+  }
+  
+  .profileCircle {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .profileEmoji {
+    font-size: 100px;
+  }
+  
+  /* Simplify animations on mobile */
+  .typewriter {
+    white-space: normal;
+    border-right: none;
+    animation: fadeIn 1s var(--ease-out) 0.5s forwards;
+    width: auto;
+  }
+  
+  /* Reduce contact info wrapping */
+  .contactInfo {
+    gap: var(--spacing-sm);
+  }
+  
+  .contactItem {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+  
+  /* Optimize scroll indicator for mobile */
+  .scrollIndicator {
+    bottom: var(--spacing-md);
+  }
+  
+  .scrollText {
+    font-size: var(--font-size-xs);
+  }
+  
+  .scrollArrow {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .hero {
+    padding: var(--spacing-xl) var(--spacing-sm);
+  }
+  
+  .heroName {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .heroTitle {
+    font-size: var(--font-size-xl);
+  }
+  
+  .heroDescription {
+    font-size: var(--font-size-base);
+  }
+  
+  .profileCircle {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .profileEmoji {
+    font-size: 80px;
+  }
+  
+  .contactInfo {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .contactItem {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Tablet: Adjust spacing and sizes */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .hero {
+    padding: var(--spacing-3xl) var(--spacing-lg);
+  }
+}

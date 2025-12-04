@@ -1,0 +1,283 @@
+/* Blog Home Page Styles */
+
+/* ============================================
+   MAIN LAYOUT
+   ============================================ */
+
+.main {
+  min-height: 100vh;
+  padding-bottom: var(--spacing-3xl);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+  position: relative;
+  padding: var(--spacing-3xl) var(--spacing-md);
+  background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  /* Initial state for animation */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+/* Animated gradient background effect */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    var(--accent) 0%,
+    #8b5cf6 50%,
+    #ec4899 100%
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+.hero.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.2;
+  /* Staggered animation for title */
+  animation: fadeIn 1s var(--ease-out) 0.2s backwards;
+}
+
+.heroDescription {
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto;
+  /* Staggered animation for description */
+  animation: fadeIn 1s var(--ease-out) 0.4s backwards;
+}
+
+/* ============================================
+   CONTAINER & SECTIONS
+   ============================================ */
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.section {
+  padding: var(--spacing-3xl) 0;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  /* Fade-in animation for section headers */
+  animation: fadeIn 0.8s var(--ease-out);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.sectionDescription {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   POST GRID - RESPONSIVE LAYOUT
+   ============================================ */
+
+/**
+ * Responsive grid layout that adapts to different screen sizes:
+ * - Mobile (< 640px): 1 column
+ * - Tablet (640px - 1024px): 2 columns
+ * - Desktop (> 1024px): 3 columns
+ */
+.postGrid {
+  display: grid;
+  gap: var(--spacing-xl);
+  /* Mobile: Single column */
+  grid-template-columns: 1fr;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 640px) {
+  .postGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 1024px) {
+  .postGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/**
+ * Post Grid Item with staggered fade-in animation
+ * Each item animates in with a delay based on its index
+ */
+.postGridItem {
+  /* Initial state - hidden */
+  opacity: 0;
+  transform: translateY(20px);
+  /* Fade-in animation with staggered delay */
+  animation: fadeIn 0.6s var(--ease-out) forwards;
+}
+
+/* ============================================
+   CATEGORIES SECTION
+   ============================================ */
+
+.categoriesSection {
+  padding: var(--spacing-2xl) 0;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  margin-top: var(--spacing-2xl);
+  /* Fade-in animation */
+  animation: fadeIn 0.8s var(--ease-out) 0.6s backwards;
+}
+
+.categoriesTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  justify-content: center;
+  align-items: center;
+}
+
+.categoryButton {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.categoryButton:hover {
+  background-color: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-lg);
+}
+
+.categoryButton:active {
+  transform: translateY(0);
+}
+
+/* Focus styles for keyboard navigation */
+.categoryButton:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+/* Tablet adjustments */
+@media (min-width: 640px) {
+  .hero {
+    padding: var(--spacing-3xl) var(--spacing-lg);
+  }
+
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+
+  .heroTitle {
+    font-size: 3rem;
+  }
+
+  .heroDescription {
+    font-size: 1.25rem;
+  }
+}
+
+/* Desktop adjustments */
+@media (min-width: 1024px) {
+  .hero {
+    padding: 5rem var(--spacing-xl);
+  }
+
+  .container {
+    padding: 0 var(--spacing-xl);
+  }
+
+  .section {
+    padding: 5rem 0;
+  }
+
+  .postGrid {
+    gap: var(--spacing-2xl);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY - REDUCED MOTION
+   ============================================ */
+
+/**
+ * Respect user's motion preferences
+ * Disable animations for users who prefer reduced motion
+ */
+@media (prefers-reduced-motion: reduce) {
+  .hero,
+  .heroTitle,
+  .heroDescription,
+  .sectionHeader,
+  .postGridItem,
+  .categoriesSection {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero::before {
+    animation: none !important;
+  }
+
+  .categoryButton:hover {
+    transform: none;
+  }
+}

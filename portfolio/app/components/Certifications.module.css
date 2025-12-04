@@ -1,0 +1,315 @@
+/* Certifications Section Styles */
+
+.certificationsSection {
+  padding: var(--spacing-4xl) 0;
+  background: var(--color-background);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+/* Section Title */
+.title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+/* Certifications Grid Layout */
+.certificationsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .certificationsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+  }
+}
+
+/* Certification Card */
+.certificationCard {
+  background: var(--color-background);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+  
+  /* Initial state for animation - visible by default */
+  opacity: 1;
+  transform: scale(1);
+  
+  /* Smooth transitions for hover effects */
+  transition: transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal) var(--ease-out);
+}
+
+/**
+ * Decorative gradient accent bar
+ * Adds visual interest and brand color to the card
+ */
+.certificationCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+/**
+ * Visible State Animation
+ * When the card scrolls into view, it scales up and fades in
+ * Uses the scaleIn keyframe animation defined in globals.css
+ */
+.certificationCard.visible {
+  animation: scaleIn var(--duration-slow) var(--ease-out) forwards;
+}
+
+/**
+ * Hover Effects
+ * - Lifts the card with scale transform
+ * - Enhances shadow for depth
+ * - Changes border color to tertiary
+ * - Expands the gradient accent bar
+ */
+.certificationCard:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-2xl);
+  border-color: var(--color-tertiary);
+}
+
+.certificationCard:hover::before {
+  transform: scaleX(1);
+}
+
+/* Certification Header */
+.certificationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-lg);
+  gap: var(--spacing-md);
+}
+
+/* Certification Name */
+.certificationName {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-tight);
+  flex: 1;
+}
+
+/* Date Badge */
+.dateBadge {
+  background: linear-gradient(135deg, var(--color-tertiary), var(--color-primary));
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+  
+  /* Smooth scale transition on card hover */
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.certificationCard:hover .dateBadge {
+  transform: scale(1.05);
+}
+
+/* Issuer */
+.issuer {
+  font-size: var(--font-size-base);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.issuer::before {
+  content: '🏆';
+  font-size: var(--font-size-lg);
+}
+
+/* Certification Description */
+.certificationDescription {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Verification Badge (Optional) */
+.verificationBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--color-success);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.verificationBadge::before {
+  content: '✓';
+  font-weight: var(--font-weight-bold);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 767px) {
+  .certificationsSection {
+    padding: var(--spacing-3xl) 0;
+  }
+  
+  .title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .subtitle {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .certificationsGrid {
+    gap: var(--spacing-md);
+  }
+  
+  .certificationCard {
+    padding: var(--spacing-lg);
+  }
+  
+  /* Simplify hover effects on mobile */
+  .certificationCard:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .certificationHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+  
+  .certificationName {
+    font-size: var(--font-size-lg);
+  }
+  
+  .issuer {
+    font-size: var(--font-size-sm);
+  }
+  
+  .certificationDescription {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .certificationsSection {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .subtitle {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .certificationCard {
+    padding: var(--spacing-md);
+  }
+  
+  .certificationHeader {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .certificationName {
+    font-size: var(--font-size-base);
+  }
+  
+  .dateBadge {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
+  
+  .issuer {
+    font-size: var(--font-size-xs);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .certificationDescription {
+    font-size: var(--font-size-xs);
+  }
+  
+  .verificationBadge {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs);
+  }
+}
+
+/* Accessibility: Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .certificationCard {
+    transition: none;
+  }
+  
+  .certificationCard.visible {
+    animation: none;
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .certificationCard:hover {
+    transform: none;
+  }
+  
+  .certificationCard::before {
+    transition: none;
+  }
+}

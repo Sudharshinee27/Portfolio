@@ -1,0 +1,2631 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[3]!./app/components/Achievements.module.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************/
+/* Achievements Section Styles */
+
+.Achievements_achievementsSection__f8VMi {
+  padding: var(--spacing-4xl) 0;
+  background: linear-gradient(to bottom, var(--color-background), var(--color-surface));
+}
+
+.Achievements_container__SkeQd {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+@media (min-width: 640px) {
+  .Achievements_container__SkeQd {
+    padding: 0 var(--spacing-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .Achievements_container__SkeQd {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+/* Section Title */
+.Achievements_title__LBpgf {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.Achievements_subtitle__A5VDK {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+/* Achievements Grid Layout */
+.Achievements_achievementsGrid__lW2hG {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: var(--spacing-lg);
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 640px) {
+  .Achievements_achievementsGrid__lW2hG {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .Achievements_achievementsGrid__lW2hG {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Achievement Card */
+.Achievements_achievementCard__Z7jKG {
+  background: var(--color-background);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+  position: relative;
+  
+  /* Initial state for animation - visible by default */
+  opacity: 1;
+  transform: scale(1);
+  
+  /* Smooth transitions for hover effects */
+  transition: transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal) var(--ease-out);
+}
+
+/**
+ * Visible State Animation
+ * When the card scrolls into view, it scales up and fades in
+ * Uses the scaleIn keyframe animation defined in globals.css
+ */
+.Achievements_achievementCard__Z7jKG.Achievements_visible__YX5nB {
+  animation: Achievements_scaleIn__Kmvj6 var(--duration-slow) var(--ease-out) forwards;
+}
+
+/**
+ * Hover Effects
+ * - Lifts the card with scale transform
+ * - Enhances shadow for depth
+ * - Changes border color to primary
+ */
+.Achievements_achievementCard__Z7jKG:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-primary);
+}
+
+/* Icon Container */
+.Achievements_iconContainer__LydTx {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
+  
+  /* Smooth scale transition on card hover */
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.Achievements_achievementCard__Z7jKG:hover .Achievements_iconContainer__LydTx {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.Achievements_icon__UrSrd {
+  font-size: var(--font-size-3xl);
+}
+
+/* Year Badge */
+.Achievements_yearBadge__hKjob {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background: var(--gradient-secondary);
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Achievement Title */
+.Achievements_achievementTitle__sNiVf {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-tight);
+}
+
+/* Achievement Description */
+.Achievements_achievementDescription__0S8I6 {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .Achievements_achievementsSection__f8VMi {
+    padding: var(--spacing-3xl) 0;
+  }
+  
+  .Achievements_title__LBpgf {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .Achievements_subtitle__A5VDK {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .Achievements_achievementsGrid__lW2hG {
+    gap: var(--spacing-md);
+  }
+  
+  .Achievements_achievementCard__Z7jKG {
+    padding: var(--spacing-lg);
+  }
+  
+  /* Simplify hover effects on mobile */
+  .Achievements_achievementCard__Z7jKG:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .Achievements_iconContainer__LydTx {
+    width: 50px;
+    height: 50px;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .Achievements_icon__UrSrd {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .Achievements_achievementTitle__sNiVf {
+    font-size: var(--font-size-lg);
+  }
+  
+  .Achievements_achievementDescription__0S8I6 {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .Achievements_achievementsSection__f8VMi {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .Achievements_title__LBpgf {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .Achievements_subtitle__A5VDK {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .Achievements_achievementCard__Z7jKG {
+    padding: var(--spacing-md);
+  }
+  
+  .Achievements_iconContainer__LydTx {
+    width: 44px;
+    height: 44px;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .Achievements_icon__UrSrd {
+    font-size: var(--font-size-xl);
+  }
+  
+  .Achievements_yearBadge__hKjob {
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
+  
+  .Achievements_achievementTitle__sNiVf {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .Achievements_achievementDescription__0S8I6 {
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* Accessibility: Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .Achievements_achievementCard__Z7jKG {
+    transition: none;
+  }
+  
+  .Achievements_achievementCard__Z7jKG.Achievements_visible__YX5nB {
+    animation: none;
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .Achievements_achievementCard__Z7jKG:hover {
+    transform: none;
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[3]!./app/components/Blog.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************/
+/* Blog Section Styles */
+
+.Blog_blogSection__Erki_ {
+  padding: var(--spacing-4xl) 0;
+  background: linear-gradient(to bottom, var(--color-surface), var(--color-background));
+}
+
+.Blog_header__tzfpT {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+.Blog_title__VWag5 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-md);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.Blog_subtitle__EJ8Cz {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+}
+
+/* Filter Buttons */
+.Blog_filterContainer__NpME0 {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-3xl);
+  flex-wrap: wrap;
+}
+
+.Blog_filterButton__h0C_b {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-border);
+  background: var(--color-background);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-in-out);
+}
+
+.Blog_filterButton__h0C_b:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.Blog_filterButton__h0C_b.Blog_active__BbFq0 {
+  background: var(--gradient-primary);
+  border-color: transparent;
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+/* Posts Grid */
+.Blog_postsGrid__NoOvr {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: var(--spacing-xl);
+  gap: var(--spacing-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .Blog_postsGrid__NoOvr {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .Blog_postsGrid__NoOvr {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Post Card */
+.Blog_postCard__CwV2X {
+  background: var(--color-background);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+  transition: transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out);
+  display: flex;
+  flex-direction: column;
+}
+
+.Blog_postCard__CwV2X:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-primary);
+}
+
+.Blog_postHeader__IN1Lf {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.Blog_category__XcqwG {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: white;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.Blog_readTime__i_V3T {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.Blog_postTitle__Crgab {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-tight);
+}
+
+.Blog_postExcerpt__mw9Gr {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-lg);
+  flex-grow: 1;
+}
+
+.Blog_postFooter__p_qlA {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.Blog_date__RJW6L {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.Blog_readMore__LLrKf {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-in-out);
+}
+
+.Blog_readMore__LLrKf:hover {
+  transform: translateX(4px);
+}
+
+/* Empty State */
+.Blog_emptyState__SDRDr {
+  text-align: center;
+  padding: var(--spacing-3xl);
+  color: var(--color-text-secondary);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 767px) {
+  .Blog_blogSection__Erki_ {
+    padding: var(--spacing-3xl) 0;
+  }
+  
+  .Blog_title__VWag5 {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .Blog_subtitle__EJ8Cz {
+    font-size: var(--font-size-base);
+  }
+  
+  .Blog_filterContainer__NpME0 {
+    gap: var(--spacing-sm);
+  }
+  
+  .Blog_filterButton__h0C_b {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+  
+  .Blog_postsGrid__NoOvr {
+    gap: var(--spacing-lg);
+  }
+  
+  .Blog_postCard__CwV2X {
+    padding: var(--spacing-lg);
+  }
+  
+  .Blog_postTitle__Crgab {
+    font-size: var(--font-size-lg);
+  }
+  
+  .Blog_postExcerpt__mw9Gr {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[3]!./app/components/Certifications.module.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************/
+/* Certifications Section Styles */
+
+.Certifications_certificationsSection__UlC1N {
+  padding: var(--spacing-4xl) 0;
+  background: var(--color-background);
+}
+
+.Certifications_container__0wNmL {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+@media (min-width: 640px) {
+  .Certifications_container__0wNmL {
+    padding: 0 var(--spacing-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .Certifications_container__0wNmL {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+/* Section Title */
+.Certifications_title__lDWW_ {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.Certifications_subtitle__okcog {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+/* Certifications Grid Layout */
+.Certifications_certificationsGrid__b_HFz {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: var(--spacing-lg);
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .Certifications_certificationsGrid__b_HFz {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+  }
+}
+
+/* Certification Card */
+.Certifications_certificationCard__dzGm6 {
+  background: var(--color-background);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+  
+  /* Initial state for animation - visible by default */
+  opacity: 1;
+  transform: scale(1);
+  
+  /* Smooth transitions for hover effects */
+  transition: transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal) var(--ease-out);
+}
+
+/**
+ * Decorative gradient accent bar
+ * Adds visual interest and brand color to the card
+ */
+.Certifications_certificationCard__dzGm6::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+/**
+ * Visible State Animation
+ * When the card scrolls into view, it scales up and fades in
+ * Uses the scaleIn keyframe animation defined in globals.css
+ */
+.Certifications_certificationCard__dzGm6.Certifications_visible__Gl2z5 {
+  animation: Certifications_scaleIn__ZNk4M var(--duration-slow) var(--ease-out) forwards;
+}
+
+/**
+ * Hover Effects
+ * - Lifts the card with scale transform
+ * - Enhances shadow for depth
+ * - Changes border color to tertiary
+ * - Expands the gradient accent bar
+ */
+.Certifications_certificationCard__dzGm6:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-2xl);
+  border-color: var(--color-tertiary);
+}
+
+.Certifications_certificationCard__dzGm6:hover::before {
+  transform: scaleX(1);
+}
+
+/* Certification Header */
+.Certifications_certificationHeader__gHvtx {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-lg);
+  gap: var(--spacing-md);
+}
+
+/* Certification Name */
+.Certifications_certificationName__k8EFr {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-tight);
+  flex: 1 1;
+}
+
+/* Date Badge */
+.Certifications_dateBadge__gJ7w7 {
+  background: linear-gradient(135deg, var(--color-tertiary), var(--color-primary));
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+  
+  /* Smooth scale transition on card hover */
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.Certifications_certificationCard__dzGm6:hover .Certifications_dateBadge__gJ7w7 {
+  transform: scale(1.05);
+}
+
+/* Issuer */
+.Certifications_issuer__PZcG3 {
+  font-size: var(--font-size-base);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.Certifications_issuer__PZcG3::before {
+  content: '🏆';
+  font-size: var(--font-size-lg);
+}
+
+/* Certification Description */
+.Certifications_certificationDescription__gjfoF {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Verification Badge (Optional) */
+.Certifications_verificationBadge__EEP1g {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--color-success);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.Certifications_verificationBadge__EEP1g::before {
+  content: '✓';
+  font-weight: var(--font-weight-bold);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 767px) {
+  .Certifications_certificationsSection__UlC1N {
+    padding: var(--spacing-3xl) 0;
+  }
+  
+  .Certifications_title__lDWW_ {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .Certifications_subtitle__okcog {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .Certifications_certificationsGrid__b_HFz {
+    gap: var(--spacing-md);
+  }
+  
+  .Certifications_certificationCard__dzGm6 {
+    padding: var(--spacing-lg);
+  }
+  
+  /* Simplify hover effects on mobile */
+  .Certifications_certificationCard__dzGm6:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .Certifications_certificationHeader__gHvtx {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+  
+  .Certifications_certificationName__k8EFr {
+    font-size: var(--font-size-lg);
+  }
+  
+  .Certifications_issuer__PZcG3 {
+    font-size: var(--font-size-sm);
+  }
+  
+  .Certifications_certificationDescription__gjfoF {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .Certifications_certificationsSection__UlC1N {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .Certifications_title__lDWW_ {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .Certifications_subtitle__okcog {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .Certifications_certificationCard__dzGm6 {
+    padding: var(--spacing-md);
+  }
+  
+  .Certifications_certificationHeader__gHvtx {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .Certifications_certificationName__k8EFr {
+    font-size: var(--font-size-base);
+  }
+  
+  .Certifications_dateBadge__gJ7w7 {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
+  
+  .Certifications_issuer__PZcG3 {
+    font-size: var(--font-size-xs);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .Certifications_certificationDescription__gjfoF {
+    font-size: var(--font-size-xs);
+  }
+  
+  .Certifications_verificationBadge__EEP1g {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs);
+  }
+}
+
+/* Accessibility: Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .Certifications_certificationCard__dzGm6 {
+    transition: none;
+  }
+  
+  .Certifications_certificationCard__dzGm6.Certifications_visible__Gl2z5 {
+    animation: none;
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .Certifications_certificationCard__dzGm6:hover {
+    transform: none;
+  }
+  
+  .Certifications_certificationCard__dzGm6::before {
+    transition: none;
+  }
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[3]!./app/components/TimelineItem.module.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * TimelineItem Styles
+ * 
+ * Layout Strategy:
+ * - Uses CSS Grid for vertical timeline structure
+ * - Alternating left/right positioning using grid-column placement
+ * - Central vertical line created with ::before pseudo-element
+ * - Timeline dots positioned absolutely at the center
+ * 
+ * Animation Strategy:
+ * - Items start with opacity 0 and translated position
+ * - When .visible class is added (via Intersection Observer), animations trigger
+ * - Left items slide in from left, right items slide in from right
+ * - Smooth transitions for all interactive states
+ */
+
+.TimelineItem_timelineItem__wH12Z {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr; /* Left content | Dot space | Right content */
+  grid-gap: 2rem;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  opacity: 0; /* Hidden by default, revealed when visible */
+  
+  /* Animation will be applied when .visible class is added */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Left-aligned timeline items */
+.TimelineItem_timelineItem__wH12Z.TimelineItem_left__a7Stn {
+  /* Content goes in the left column, dot in middle, right column empty */
+  transform: translateX(-50px); /* Start position for slide-in animation */
+}
+
+.TimelineItem_timelineItem__wH12Z.TimelineItem_left__a7Stn .TimelineItem_content__1K7Os {
+  grid-column: 1; /* Place content in first column */
+  text-align: right; /* Align text to the right edge */
+}
+
+/* Right-aligned timeline items */
+.TimelineItem_timelineItem__wH12Z.TimelineItem_right__YleDo {
+  /* Left column empty, dot in middle, content in right column */
+  transform: translateX(50px); /* Start position for slide-in animation */
+}
+
+.TimelineItem_timelineItem__wH12Z.TimelineItem_right__YleDo .TimelineItem_content__1K7Os {
+  grid-column: 3; /* Place content in third column */
+  text-align: left; /* Align text to the left edge */
+}
+
+/* Visible state - triggers animation */
+.TimelineItem_timelineItem__wH12Z.TimelineItem_visible__Vd_XT {
+  opacity: 1;
+  transform: translateX(0); /* Slide to final position */
+}
+
+/**
+ * Timeline Dot
+ * - Positioned in the center column
+ * - Color-coded based on item type (experience vs education)
+ * - Pulse animation on hover for interactivity
+ */
+.TimelineItem_timelineDot__8WT_T {
+  grid-column: 2; /* Always in the middle column */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Outer ring with border */
+  border: 4px solid var(--color-background);
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+/* Color coding for experience type */
+.TimelineItem_timelineDot__8WT_T.TimelineItem_experience__9gq4m {
+  background: var(--gradient-primary);
+  box-shadow: 0 0 0 2px var(--color-primary), 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+/* Color coding for education type */
+.TimelineItem_timelineDot__8WT_T.TimelineItem_education__HExc3 {
+  background: var(--gradient-secondary);
+  box-shadow: 0 0 0 2px var(--color-secondary), 0 4px 12px rgba(236, 72, 153, 0.3);
+}
+
+/* Inner dot for visual depth */
+.TimelineItem_dotInner__ypsW7 {
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* Hover effect on timeline dot */
+.TimelineItem_timelineItem__wH12Z:hover .TimelineItem_timelineDot__8WT_T {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 2px var(--color-primary), 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.TimelineItem_timelineItem__wH12Z:hover .TimelineItem_timelineDot__8WT_T.TimelineItem_education__HExc3 {
+  box-shadow: 0 0 0 2px var(--color-secondary), 0 6px 20px rgba(236, 72, 153, 0.4);
+}
+
+/**
+ * Content Card
+ * - Contains all text content for the timeline item
+ * - Elevated card design with shadow
+ * - Smooth hover effects
+ */
+.TimelineItem_content__1K7Os {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--color-border);
+}
+
+/* Hover effect on content card */
+.TimelineItem_timelineItem__wH12Z:hover .TimelineItem_content__1K7Os {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Header section with title, organization, and period */
+.TimelineItem_header__ETA_I {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.TimelineItem_title__dXeyC {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+  line-height: var(--line-height-tight);
+}
+
+.TimelineItem_organization__vCX9k {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.TimelineItem_period__ZbSyI {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-top: 0.5rem;
+}
+
+/* Description list styling */
+.TimelineItem_descriptionList__j0kLZ {
+  margin: 1rem 0;
+  padding-left: 0;
+}
+
+.TimelineItem_descriptionItem__ZiI6s {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Custom bullet points */
+.TimelineItem_descriptionItem__ZiI6s::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 1.2em;
+}
+
+/* Achievements section (optional) */
+.TimelineItem_achievements__G1Ly2 {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.TimelineItem_achievementsTitle__6w0Ak {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-success);
+  margin-bottom: 0.75rem;
+}
+
+.TimelineItem_achievementsList__AJ9CD {
+  padding-left: 0;
+}
+
+.TimelineItem_achievementItem__9tHno {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+}
+
+/* Achievement bullet points with success color */
+.TimelineItem_achievementItem__9tHno::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-weight: var(--font-weight-bold);
+}
+
+/**
+ * Responsive Design - Mobile
+ * On mobile, stack timeline vertically without alternating sides
+ */
+@media (max-width: 768px) {
+  .TimelineItem_timelineItem__wH12Z {
+    grid-template-columns: 40px 1fr; /* Dot | Content */
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* All items align to the right of the dot on mobile */
+  .TimelineItem_timelineItem__wH12Z.TimelineItem_left__a7Stn .TimelineItem_content__1K7Os,
+  .TimelineItem_timelineItem__wH12Z.TimelineItem_right__YleDo .TimelineItem_content__1K7Os {
+    grid-column: 2;
+    text-align: left;
+  }
+  
+  .TimelineItem_timelineDot__8WT_T {
+    grid-column: 1;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .TimelineItem_dotInner__ypsW7 {
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Simplified animations for mobile */
+  .TimelineItem_timelineItem__wH12Z.TimelineItem_left__a7Stn,
+  .TimelineItem_timelineItem__wH12Z.TimelineItem_right__YleDo {
+    transform: translateX(-30px);
+  }
+  
+  .TimelineItem_content__1K7Os {
+    padding: 1rem;
+  }
+  
+  .TimelineItem_title__dXeyC {
+    font-size: var(--font-size-lg);
+  }
+  
+  .TimelineItem_organization__vCX9k {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .TimelineItem_timelineItem__wH12Z {
+    grid-template-columns: 32px 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .TimelineItem_timelineDot__8WT_T {
+    width: 28px;
+    height: 28px;
+    border: 3px solid var(--color-background);
+  }
+  
+  .TimelineItem_dotInner__ypsW7 {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .TimelineItem_content__1K7Os {
+    padding: 0.75rem;
+  }
+  
+  .TimelineItem_header__ETA_I {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  
+  .TimelineItem_title__dXeyC {
+    font-size: var(--font-size-base);
+    margin-bottom: 0.375rem;
+  }
+  
+  .TimelineItem_organization__vCX9k {
+    font-size: var(--font-size-sm);
+  }
+  
+  .TimelineItem_period__ZbSyI {
+    font-size: var(--font-size-xs);
+    padding: 0.2rem 0.5rem;
+  }
+  
+  .TimelineItem_descriptionItem__ZiI6s {
+    font-size: var(--font-size-sm);
+    padding-left: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .TimelineItem_achievementItem__9tHno {
+    font-size: var(--font-size-xs);
+    padding-left: 1.25rem;
+  }
+  
+  /* Simplify hover effects on mobile */
+  .TimelineItem_timelineItem__wH12Z:hover .TimelineItem_timelineDot__8WT_T {
+    transform: scale(1.05);
+  }
+  
+  .TimelineItem_timelineItem__wH12Z:hover .TimelineItem_content__1K7Os {
+    transform: translateY(-2px);
+  }
+}
+
+/**
+ * Accessibility - Reduced Motion
+ * Respect user's motion preferences
+ */
+@media (prefers-reduced-motion: reduce) {
+  .TimelineItem_timelineItem__wH12Z {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .TimelineItem_timelineItem__wH12Z.TimelineItem_visible__Vd_XT {
+    transition: none;
+  }
+  
+  .TimelineItem_timelineDot__8WT_T,
+  .TimelineItem_content__1K7Os {
+    transition: none;
+  }
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[3]!./app/components/Education.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Education Section Styles
+ * 
+ * Layout Strategy:
+ * - Full-width section with centered container
+ * - Vertical timeline with central line connecting all items
+ * - Section header with title and subtitle
+ * - Similar styling to Experience but with education-specific color accents
+ */
+
+.Education_educationSection__mR04B {
+  padding: var(--spacing-4xl) 0;
+  background: var(--color-background);
+  position: relative;
+}
+
+/* Section Header */
+.Education_header__e7c89 {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+  animation: Education_fadeIn__LBPnx 0.8s ease-out;
+}
+
+.Education_title__5eFsJ {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.Education_subtitle__QN_b6 {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/**
+ * Timeline Container
+ * - Relative positioning for absolute timeline line
+ * - Contains all timeline items
+ */
+.Education_timeline__Ij_ch {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) 0;
+}
+
+/**
+ * Vertical Timeline Line
+ * - Runs through the center of all timeline items
+ * - Connects all timeline dots visually
+ * - Uses gradient with secondary color for education theme
+ */
+.Education_timelineLine__oJMog {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-secondary) 10%,
+    var(--color-secondary) 90%,
+    transparent
+  );
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Empty state when no data */
+.Education_emptyState__hcKlV {
+  text-align: center;
+  padding: var(--spacing-3xl);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+}
+
+/**
+ * Responsive Design - Tablet
+ */
+@media (max-width: 1024px) {
+  .Education_timeline__Ij_ch {
+    max-width: 800px;
+  }
+  
+  .Education_title__5eFsJ {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/**
+ * Responsive Design - Mobile
+ * - Timeline line moves to the left side
+ * - All items stack vertically on the right
+ */
+@media (max-width: 768px) {
+  .Education_educationSection__mR04B {
+    padding: var(--spacing-3xl) 0;
+  }
+  
+  .Education_header__e7c89 {
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .Education_title__5eFsJ {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .Education_subtitle__QN_b6 {
+    font-size: var(--font-size-base);
+  }
+  
+  .Education_timeline__Ij_ch {
+    padding: var(--spacing-lg) 0;
+    padding-left: var(--spacing-md);
+  }
+  
+  /* Move timeline line to the left on mobile */
+  .Education_timelineLine__oJMog {
+    left: 16px;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .Education_educationSection__mR04B {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .Education_header__e7c89 {
+    margin-bottom: var(--spacing-xl);
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .Education_title__5eFsJ {
+    font-size: var(--font-size-xl);
+  }
+  
+  .Education_subtitle__QN_b6 {
+    font-size: var(--font-size-sm);
+  }
+  
+  .Education_timeline__Ij_ch {
+    padding: var(--spacing-md) 0;
+    padding-left: var(--spacing-sm);
+  }
+  
+  .Education_timelineLine__oJMog {
+    left: 12px;
+  }
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[3]!./app/components/Experience.module.css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Experience Section Styles
+ * 
+ * Layout Strategy:
+ * - Full-width section with centered container
+ * - Vertical timeline with central line connecting all items
+ * - Section header with title and subtitle
+ */
+
+.Experience_experienceSection__BEtXC {
+  padding: var(--spacing-4xl) 0;
+  background: linear-gradient(to bottom, var(--color-background), var(--color-surface));
+  position: relative;
+}
+
+/* Section Header */
+.Experience_header__kEdXg {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+  animation: Experience_fadeIn__e23Zy 0.8s ease-out;
+}
+
+.Experience_title__EBSTA {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.Experience_subtitle___1s1I {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/**
+ * Timeline Container
+ * - Relative positioning for absolute timeline line
+ * - Contains all timeline items
+ */
+.Experience_timeline__kD_p0 {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) 0;
+}
+
+/**
+ * Vertical Timeline Line
+ * - Runs through the center of all timeline items
+ * - Connects all timeline dots visually
+ * - Uses gradient for visual interest
+ */
+.Experience_timelineLine__9nVa_ {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-primary) 10%,
+    var(--color-primary) 90%,
+    transparent
+  );
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Empty state when no data */
+.Experience_emptyState__tOZEk {
+  text-align: center;
+  padding: var(--spacing-3xl);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+}
+
+/**
+ * Responsive Design - Tablet
+ */
+@media (max-width: 1024px) {
+  .Experience_timeline__kD_p0 {
+    max-width: 800px;
+  }
+  
+  .Experience_title__EBSTA {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/**
+ * Responsive Design - Mobile
+ * - Timeline line moves to the left side
+ * - All items stack vertically on the right
+ */
+@media (max-width: 768px) {
+  .Experience_experienceSection__BEtXC {
+    padding: var(--spacing-3xl) 0;
+  }
+  
+  .Experience_header__kEdXg {
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .Experience_title__EBSTA {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .Experience_subtitle___1s1I {
+    font-size: var(--font-size-base);
+  }
+  
+  .Experience_timeline__kD_p0 {
+    padding: var(--spacing-lg) 0;
+    padding-left: var(--spacing-md);
+  }
+  
+  /* Move timeline line to the left on mobile */
+  .Experience_timelineLine__9nVa_ {
+    left: 16px;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .Experience_experienceSection__BEtXC {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .Experience_header__kEdXg {
+    margin-bottom: var(--spacing-xl);
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .Experience_title__EBSTA {
+    font-size: var(--font-size-xl);
+  }
+  
+  .Experience_subtitle___1s1I {
+    font-size: var(--font-size-sm);
+  }
+  
+  .Experience_timeline__kD_p0 {
+    padding: var(--spacing-md) 0;
+    padding-left: var(--spacing-sm);
+  }
+  
+  .Experience_timelineLine__9nVa_ {
+    left: 12px;
+  }
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[3]!./app/components/Hero.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************/
+/* Hero Component Styles with Animations */
+
+/* ============================================
+   HERO SECTION - Full viewport with animated gradient
+   ============================================ */
+.Hero_hero__JT9C7 {
+  /* Full viewport height for impactful first impression */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding: var(--spacing-xl) var(--spacing-md);
+  
+  /* Animated gradient background using gradientShift keyframe */
+  /* The gradient moves smoothly across the background creating a dynamic effect */
+  background: var(--gradient-animated);
+  background-size: 200% 200%;
+  animation: Hero_gradientShift__SUuYG 8s ease infinite;
+  
+  /* Performance optimization: Use will-change for animated background-position */
+  /* This hints to the browser to optimize for this property change */
+  will-change: background-position;
+}
+
+/* ============================================
+   HERO CONTENT CONTAINER
+   ============================================ */
+.Hero_heroContent__6xoKm {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xl);
+  align-items: center;
+  z-index: var(--z-base);
+}
+
+/* Desktop layout: text on left, visual on right */
+@media (min-width: 1024px) {
+  .Hero_heroContent__6xoKm {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-2xl);
+  }
+}
+
+/* ============================================
+   HERO TEXT SECTION
+   ============================================ */
+.Hero_heroText__a6Vhk {
+  color: white;
+  text-align: center;
+  flex: 1 1;
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .Hero_heroText__a6Vhk {
+    text-align: left;
+    max-width: 600px;
+  }
+}
+
+/* Name heading with fade-in animation on component mount */
+.Hero_heroName___3hwb {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-extrabold);
+  margin-bottom: var(--spacing-md);
+  
+  /* Visible by default */
+  opacity: 1;
+}
+
+@media (min-width: 640px) {
+  .Hero_heroName___3hwb {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .Hero_heroName___3hwb {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+/* ============================================
+   TITLE SECTION
+   ============================================ */
+.Hero_heroTitle__lzsay {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-lg);
+  color: rgba(255, 255, 255, 0.95);
+  
+  /* Visible by default */
+  opacity: 1;
+}
+
+@media (min-width: 640px) {
+  .Hero_heroTitle__lzsay {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .Hero_heroTitle__lzsay {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* Typewriter span - no animation, just display text */
+.Hero_typewriter__6Tu0k {
+  display: inline-block;
+}
+
+/* ============================================
+   HERO DESCRIPTION
+   ============================================ */
+.Hero_heroDescription__WB7rm {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-xl);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  /* Visible by default */
+  opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  .Hero_heroDescription__WB7rm {
+    margin-left: 0;
+    margin-right: 0;
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* ============================================
+   CONTACT INFO WITH FLOATING ANIMATION
+   ============================================ */
+.Hero_contactInfo__rcaY8 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  justify-content: center;
+  
+  /* Visible by default */
+  opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  .Hero_contactInfo__rcaY8 {
+    justify-content: flex-start;
+  }
+}
+
+/* Individual contact items with hover effects */
+.Hero_contactItem__uxqxi {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: rgba(255, 255, 255, 0.15);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-radius: var(--radius-full);
+  color: white;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--duration-normal) var(--ease-in-out);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hover effect: scale up and brighten background */
+.Hero_contactItem__uxqxi:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Focus-visible styles for keyboard navigation */
+.Hero_contactItem__uxqxi:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================
+   HERO VISUAL - FLOATING PROFILE ELEMENT
+   ============================================ */
+.Hero_heroVisual__DckSE {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Visible by default */
+  opacity: 1;
+}
+
+/* Profile circle with floating animation */
+/* The float animation creates a gentle up-and-down motion for visual interest */
+.Hero_profileCircle__ETkX3 {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+  
+  /* Floating animation creates smooth vertical movement */
+  animation: Hero_float__waLz_ 3s var(--ease-in-out) infinite;
+  
+  /* Box shadow adds depth */
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.2),
+    inset 0 0 40px rgba(255, 255, 255, 0.1);
+  
+  /* Performance optimization: Use will-change for transform property */
+  /* GPU-accelerated animation for smooth floating effect */
+  will-change: transform;
+}
+
+@media (min-width: 640px) {
+  .Hero_profileCircle__ETkX3 {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Hero_profileCircle__ETkX3 {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Inner circle for additional depth */
+.Hero_profileInner__zn1Da {
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+/* Profile Image */
+.Hero_profileImage__2V2PM {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform var(--duration-normal) var(--ease-in-out);
+}
+
+/* Profile emoji with scale animation on hover */
+.Hero_profileEmoji__sqoip {
+  font-size: 80px;
+  transition: transform var(--duration-normal) var(--ease-in-out);
+  /* Performance optimization: Prepare for transform changes on hover */
+  will-change: transform;
+}
+
+@media (min-width: 640px) {
+  .Hero_profileEmoji__sqoip {
+    font-size: 100px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Hero_profileEmoji__sqoip {
+    font-size: 120px;
+  }
+}
+
+/* Hover effect on profile circle: scale up emoji */
+.Hero_profileCircle__ETkX3:hover .Hero_profileEmoji__sqoip {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Hover effect on profile circle: scale up image */
+.Hero_profileCircle__ETkX3:hover .Hero_profileImage__2V2PM {
+  transform: scale(1.1);
+}
+
+/* ============================================
+   SCROLL INDICATOR WITH PULSE ANIMATION
+   ============================================ */
+.Hero_scrollIndicator__1u_Zq {
+  position: absolute;
+  bottom: var(--spacing-xl);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: white;
+  
+  /* Visible by default */
+  opacity: 1;
+}
+
+.Hero_scrollText__2ExWv {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Animated arrow with pulse and bounce effect */
+.Hero_scrollArrow__yXeU_ {
+  font-size: var(--font-size-2xl);
+  
+  /* Pulse animation draws attention to scroll indicator */
+  animation: Hero_pulse__pgcim 2s var(--ease-in-out) infinite;
+  
+  /* Performance optimization: Optimize opacity animation */
+  will-change: opacity;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+/* Mobile: Stack content vertically */
+@media (max-width: 639px) {
+  .Hero_hero__JT9C7 {
+    padding: var(--spacing-2xl) var(--spacing-md);
+    min-height: auto;
+    padding-top: var(--spacing-3xl);
+    padding-bottom: var(--spacing-3xl);
+  }
+  
+  .Hero_heroContent__6xoKm {
+    gap: var(--spacing-2xl);
+  }
+  
+  .Hero_profileCircle__ETkX3 {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .Hero_profileEmoji__sqoip {
+    font-size: 100px;
+  }
+  
+  /* Simplify animations on mobile */
+  .Hero_typewriter__6Tu0k {
+    white-space: normal;
+    border-right: none;
+    animation: Hero_fadeIn__kFtmC 1s var(--ease-out) 0.5s forwards;
+    width: auto;
+  }
+  
+  /* Reduce contact info wrapping */
+  .Hero_contactInfo__rcaY8 {
+    gap: var(--spacing-sm);
+  }
+  
+  .Hero_contactItem__uxqxi {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+  
+  /* Optimize scroll indicator for mobile */
+  .Hero_scrollIndicator__1u_Zq {
+    bottom: var(--spacing-md);
+  }
+  
+  .Hero_scrollText__2ExWv {
+    font-size: var(--font-size-xs);
+  }
+  
+  .Hero_scrollArrow__yXeU_ {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .Hero_hero__JT9C7 {
+    padding: var(--spacing-xl) var(--spacing-sm);
+  }
+  
+  .Hero_heroName___3hwb {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .Hero_heroTitle__lzsay {
+    font-size: var(--font-size-xl);
+  }
+  
+  .Hero_heroDescription__WB7rm {
+    font-size: var(--font-size-base);
+  }
+  
+  .Hero_profileCircle__ETkX3 {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .Hero_profileEmoji__sqoip {
+    font-size: 80px;
+  }
+  
+  .Hero_contactInfo__rcaY8 {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .Hero_contactItem__uxqxi {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Tablet: Adjust spacing and sizes */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .Hero_hero__JT9C7 {
+    padding: var(--spacing-3xl) var(--spacing-lg);
+  }
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[3]!./app/components/Projects.module.css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
+.Projects_projectsSection__pfsYV {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.Projects_container__WFxRn {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.Projects_sectionTitle__oYFe7 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+  color: #1f2937;
+  background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.Projects_projectsGrid__AEher {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 40px;
+  gap: 40px;
+  padding: 20px 0;
+}
+
+/* 
+  Card wrapper with fade-in animation
+  Uses opacity and transform for smooth entrance when scrolling into view
+*/
+.Projects_cardWrapper__jcaMp {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: none;
+  
+  /* Performance optimization: Prepare for animation */
+  will-change: opacity, transform;
+}
+
+.Projects_cardWrapper__jcaMp.Projects_visible___cTfQ {
+  animation: Projects_fadeInUp__II_Gt 0.6s ease-out forwards;
+}
+
+@keyframes Projects_fadeInUp__II_Gt {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+  3D flip card container
+  - perspective: Creates 3D space for child elements
+  - Higher values = less dramatic perspective effect
+*/
+.Projects_card__JPy11 {
+  perspective: 1000px;
+  height: 400px;
+  cursor: pointer;
+}
+
+/*
+  Inner container that performs the actual rotation
+  - transform-style: preserve-3d allows children to exist in 3D space
+  - transition: smooth rotation animation over 0.6 seconds
+*/
+.Projects_cardInner__m2xi6 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  
+  /* Performance optimization: Use will-change for 3D transform */
+  /* GPU-accelerated rotation for smooth flip animation */
+  will-change: transform;
+}
+
+/*
+  Hover and focus effects: Rotate the card 180 degrees on Y-axis
+  This reveals the back face while hiding the front face
+  Supports both mouse hover and keyboard focus for accessibility
+*/
+.Projects_card__JPy11:hover .Projects_cardInner__m2xi6,
+.Projects_card__JPy11:focus-within .Projects_cardInner__m2xi6 {
+  transform: rotateY(180deg);
+}
+
+/*
+  Scale and shadow transitions on hover/focus for depth effect
+  Applied to the entire card wrapper for lift effect
+  Supports both mouse and keyboard interaction
+*/
+.Projects_card__JPy11:hover,
+.Projects_card__JPy11:focus-within {
+  transform: scale(1.02);
+}
+
+.Projects_cardWrapper__jcaMp:hover,
+.Projects_cardWrapper__jcaMp:focus-within {
+  filter: drop-shadow(0 20px 40px rgba(99, 102, 241, 0.3));
+}
+
+/* Focus-visible styles for keyboard navigation */
+.Projects_card__JPy11:focus-visible {
+  outline: 3px solid #6366f1;
+  outline-offset: 5px;
+  border-radius: 20px;
+}
+
+/*
+  Shared styles for both card faces
+  - backface-visibility: hidden prevents the back of faces from showing through
+  - position: absolute allows both faces to occupy the same space
+*/
+.Projects_cardFront__r8wp5,
+.Projects_cardBack__BzDZb {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+/*
+  Front face styling
+  - Default visible state (rotateY(0deg))
+  - Gradient background for visual appeal
+*/
+.Projects_cardFront__r8wp5 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/*
+  Back face styling
+  - Pre-rotated 180 degrees so it faces correctly when card flips
+  - White background for readability of detailed content
+*/
+.Projects_cardBack__BzDZb {
+  background: white;
+  color: #1f2937;
+  transform: rotateY(180deg);
+  overflow-y: auto;
+}
+
+.Projects_projectTitle__7u8wt {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.Projects_projectDescription__FklVx {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.95;
+  margin-bottom: 20px;
+}
+
+.Projects_hoverHint__6f53J {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: auto;
+  padding-top: 20px;
+  font-style: italic;
+}
+
+.Projects_detailsSection__kbhkB {
+  margin-bottom: 24px;
+}
+
+.Projects_detailsHeading__HFOPt {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #6366f1;
+  border-bottom: 2px solid #6366f1;
+  padding-bottom: 6px;
+}
+
+.Projects_techTags__C_AHi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.Projects_techTag__rQUfD {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.Projects_techTag__rQUfD:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(99, 102, 241, 0.3);
+}
+
+.Projects_highlightsList__KmqWp {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.Projects_highlightsList__KmqWp li {
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.Projects_highlightsList__KmqWp li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .Projects_projectsSection__pfsYV {
+    padding: 60px 16px;
+  }
+
+  .Projects_sectionTitle__oYFe7 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+
+  .Projects_projectsGrid__AEher {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .Projects_card__JPy11 {
+    height: 380px;
+  }
+
+  .Projects_projectTitle__7u8wt {
+    font-size: 1.5rem;
+  }
+
+  .Projects_projectDescription__FklVx {
+    font-size: 1rem;
+  }
+  
+  /* Simplify 3D effects on mobile for better performance */
+  .Projects_card__JPy11 {
+    perspective: 800px;
+  }
+  
+  /* Reduce padding on mobile */
+  .Projects_cardFront__r8wp5,
+  .Projects_cardBack__BzDZb {
+    padding: 24px;
+  }
+  
+  /* Optimize touch interactions */
+  .Projects_card__JPy11:active .Projects_cardInner__m2xi6 {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .Projects_projectsSection__pfsYV {
+    padding: 40px 12px;
+  }
+  
+  .Projects_sectionTitle__oYFe7 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .Projects_projectsGrid__AEher {
+    gap: 24px;
+  }
+  
+  .Projects_card__JPy11 {
+    height: 360px;
+  }
+  
+  .Projects_cardFront__r8wp5,
+  .Projects_cardBack__BzDZb {
+    padding: 20px;
+  }
+  
+  .Projects_projectTitle__7u8wt {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+  }
+  
+  .Projects_projectDescription__FklVx {
+    font-size: 0.95rem;
+  }
+  
+  .Projects_techTag__rQUfD {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+  
+  .Projects_highlightsList__KmqWp li {
+    font-size: 0.9rem;
+    padding: 6px 0;
+  }
+}
+
+/* Accessibility: Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .Projects_cardWrapper__jcaMp.Projects_visible___cTfQ {
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .Projects_cardInner__m2xi6 {
+    transition: none;
+  }
+
+  .Projects_card__JPy11:hover {
+    transform: none;
+  }
+
+  .Projects_techTag__rQUfD:hover {
+    transform: none;
+  }
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[3]!./app/components/Skills.module.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+/* Skills Section Styles */
+
+.Skills_skillsSection__sb29Q {
+  padding: var(--spacing-4xl) 0;
+  background: linear-gradient(
+    to bottom,
+    var(--color-background) 0%,
+    var(--color-surface) 100%
+  );
+}
+
+.Skills_container__WNLhR {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+@media (min-width: 640px) {
+  .Skills_container__WNLhR {
+    padding: 0 var(--spacing-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .Skills_container__WNLhR {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+/* Section Title */
+.Skills_title__F2aOm {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.Skills_subtitle__HW5BA {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+/* Skills Grid Layout */
+.Skills_skillsGrid__ySSA7 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: var(--spacing-lg);
+  gap: var(--spacing-lg);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .Skills_skillsGrid__ySSA7 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+  }
+}
+
+/* Individual Skill Item */
+.Skills_skillItem__CS5ZJ {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out),
+              opacity var(--duration-normal) var(--ease-out);
+  
+  /* 
+    Hover effect: Scale up and add stronger shadow
+    Uses transform for GPU-accelerated animation
+  */
+  
+  /* Performance optimization: Use will-change for animated properties */
+  /* Only transform and opacity for better performance than 'all' */
+  will-change: transform, opacity;
+}
+
+.Skills_skillItem__CS5ZJ:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+}
+
+/* 
+  Visible state animation
+  Triggered when Intersection Observer detects element in viewport
+  Uses fadeIn animation with staggered delays set inline
+*/
+.Skills_skillItem__CS5ZJ.Skills_visible__uqLhQ {
+  animation: Skills_fadeIn__x7xMP var(--duration-slow) var(--ease-out) forwards;
+}
+
+/* Skill Header - Name and Level */
+.Skills_skillHeader__VSDmw {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.Skills_skillName__fovDt {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.Skills_skillLevel__uGOXW {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+/* Progress Bar Container */
+.Skills_skillBarContainer__YjfVe {
+  width: 100%;
+  height: 12px;
+  background-color: var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+/* 
+  Progress Bar Fill
+  Animates from 0% to skill level percentage
+  Color-coded by category with gradient fills
+*/
+.Skills_skillBarFill__ZCk01 {
+  height: 100%;
+  border-radius: var(--radius-full);
+  width: 0;
+  transition: width var(--duration-normal) var(--ease-out),
+              filter var(--duration-normal) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+  
+  /* Performance optimization: Optimize width animation */
+  will-change: width;
+}
+
+/* 
+  Animate class triggers the width animation
+  Uses CSS custom property --skill-level set inline
+  Animation fills the bar from left to right
+*/
+.Skills_skillBarFill__ZCk01.Skills_animate__3iDY4 {
+  animation: Skills_fillBar__wAtTk 1s var(--ease-out) forwards;
+}
+
+/* 
+  Keyframe animation for skill bar fill
+  Animates width from 0 to the skill level percentage
+*/
+@keyframes Skills_fillBar__wAtTk {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--skill-level);
+  }
+}
+
+/* 
+  Category Color Coding with Gradient Fills
+  Each category gets a unique gradient for visual distinction
+*/
+
+/* Frontend Skills - Primary gradient (Indigo to Pink) */
+.Skills_category-frontend__k1avw {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
+}
+
+/* Backend Skills - Secondary gradient (Purple to Indigo) */
+.Skills_category-backend__Qjoha {
+  background: linear-gradient(
+    90deg,
+    var(--color-tertiary) 0%,
+    var(--color-primary) 100%
+  );
+}
+
+/* Other Skills - Success gradient (Green variations) */
+.Skills_category-other__OFD9j {
+  background: linear-gradient(
+    90deg,
+    var(--color-success) 0%,
+    #34d399 100%
+  );
+}
+
+/* 
+  Hover effect on skill bar
+  Adds a subtle shine/shimmer effect
+*/
+.Skills_skillItem__CS5ZJ:hover .Skills_skillBarFill__ZCk01 {
+  filter: brightness(1.1);
+}
+
+/* 
+  Add animated shimmer effect to filled bars
+  Creates a moving highlight across the bar
+*/
+.Skills_skillBarFill__ZCk01::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: Skills_shimmer__VD249 2s infinite;
+  animation-delay: 1s;
+}
+
+@keyframes Skills_shimmer__VD249 {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .Skills_skillsSection__sb29Q {
+    padding: var(--spacing-3xl) 0;
+  }
+  
+  .Skills_title__F2aOm {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .Skills_subtitle__HW5BA {
+    font-size: var(--font-size-base);
+  }
+  
+  .Skills_skillItem__CS5ZJ {
+    padding: var(--spacing-md);
+  }
+  
+  .Skills_skillName__fovDt {
+    font-size: var(--font-size-base);
+  }
+  
+  /* Simplify animations on mobile */
+  .Skills_skillItem__CS5ZJ:hover {
+    transform: translateY(-2px) scale(1.01);
+  }
+  
+  /* Optimize skill bar for mobile */
+  .Skills_skillBarContainer__YjfVe {
+    height: 10px;
+  }
+  
+  /* Reduce shimmer effect on mobile */
+  .Skills_skillBarFill__ZCk01::after {
+    animation: none;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .Skills_skillsSection__sb29Q {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .Skills_title__F2aOm {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .Skills_subtitle__HW5BA {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .Skills_skillsGrid__ySSA7 {
+    gap: var(--spacing-md);
+  }
+  
+  .Skills_skillItem__CS5ZJ {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .Skills_skillName__fovDt {
+    font-size: var(--font-size-sm);
+  }
+  
+  .Skills_skillLevel__uGOXW {
+    font-size: var(--font-size-xs);
+  }
+  
+  .Skills_skillBarContainer__YjfVe {
+    height: 8px;
+  }
+}
+
+/* Accessibility: Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .Skills_skillItem__CS5ZJ {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .Skills_skillBarFill__ZCk01 {
+    animation: none !important;
+  }
+  
+  .Skills_skillBarFill__ZCk01.Skills_animate__3iDY4 {
+    width: var(--skill-level);
+  }
+  
+  .Skills_skillBarFill__ZCk01::after {
+    animation: none !important;
+  }
+}
+

@@ -1,0 +1,158 @@
+/**
+ * Education Section Styles
+ * 
+ * Layout Strategy:
+ * - Full-width section with centered container
+ * - Vertical timeline with central line connecting all items
+ * - Section header with title and subtitle
+ * - Similar styling to Experience but with education-specific color accents
+ */
+
+.educationSection {
+  padding: var(--spacing-4xl) 0;
+  background: var(--color-background);
+  position: relative;
+}
+
+/* Section Header */
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/**
+ * Timeline Container
+ * - Relative positioning for absolute timeline line
+ * - Contains all timeline items
+ */
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) 0;
+}
+
+/**
+ * Vertical Timeline Line
+ * - Runs through the center of all timeline items
+ * - Connects all timeline dots visually
+ * - Uses gradient with secondary color for education theme
+ */
+.timelineLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-secondary) 10%,
+    var(--color-secondary) 90%,
+    transparent
+  );
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Empty state when no data */
+.emptyState {
+  text-align: center;
+  padding: var(--spacing-3xl);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+}
+
+/**
+ * Responsive Design - Tablet
+ */
+@media (max-width: 1024px) {
+  .timeline {
+    max-width: 800px;
+  }
+  
+  .title {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/**
+ * Responsive Design - Mobile
+ * - Timeline line moves to the left side
+ * - All items stack vertically on the right
+ */
+@media (max-width: 768px) {
+  .educationSection {
+    padding: var(--spacing-3xl) 0;
+  }
+  
+  .header {
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .subtitle {
+    font-size: var(--font-size-base);
+  }
+  
+  .timeline {
+    padding: var(--spacing-lg) 0;
+    padding-left: var(--spacing-md);
+  }
+  
+  /* Move timeline line to the left on mobile */
+  .timelineLine {
+    left: 16px;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .educationSection {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .header {
+    margin-bottom: var(--spacing-xl);
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .subtitle {
+    font-size: var(--font-size-sm);
+  }
+  
+  .timeline {
+    padding: var(--spacing-md) 0;
+    padding-left: var(--spacing-sm);
+  }
+  
+  .timelineLine {
+    left: 12px;
+  }
+}

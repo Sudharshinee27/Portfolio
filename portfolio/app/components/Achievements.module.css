@@ -1,0 +1,267 @@
+/* Achievements Section Styles */
+
+.achievementsSection {
+  padding: var(--spacing-4xl) 0;
+  background: linear-gradient(to bottom, var(--color-background), var(--color-surface));
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+/* Section Title */
+.title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+/* Achievements Grid Layout */
+.achievementsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 640px) {
+  .achievementsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .achievementsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Achievement Card */
+.achievementCard {
+  background: var(--color-background);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+  position: relative;
+  
+  /* Initial state for animation - visible by default */
+  opacity: 1;
+  transform: scale(1);
+  
+  /* Smooth transitions for hover effects */
+  transition: transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal) var(--ease-out);
+}
+
+/**
+ * Visible State Animation
+ * When the card scrolls into view, it scales up and fades in
+ * Uses the scaleIn keyframe animation defined in globals.css
+ */
+.achievementCard.visible {
+  animation: scaleIn var(--duration-slow) var(--ease-out) forwards;
+}
+
+/**
+ * Hover Effects
+ * - Lifts the card with scale transform
+ * - Enhances shadow for depth
+ * - Changes border color to primary
+ */
+.achievementCard:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-primary);
+}
+
+/* Icon Container */
+.iconContainer {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
+  
+  /* Smooth scale transition on card hover */
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.achievementCard:hover .iconContainer {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.icon {
+  font-size: var(--font-size-3xl);
+}
+
+/* Year Badge */
+.yearBadge {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background: var(--gradient-secondary);
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Achievement Title */
+.achievementTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-tight);
+}
+
+/* Achievement Description */
+.achievementDescription {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .achievementsSection {
+    padding: var(--spacing-3xl) 0;
+  }
+  
+  .title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .subtitle {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .achievementsGrid {
+    gap: var(--spacing-md);
+  }
+  
+  .achievementCard {
+    padding: var(--spacing-lg);
+  }
+  
+  /* Simplify hover effects on mobile */
+  .achievementCard:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .iconContainer {
+    width: 50px;
+    height: 50px;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .icon {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .achievementTitle {
+    font-size: var(--font-size-lg);
+  }
+  
+  .achievementDescription {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .achievementsSection {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .subtitle {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .achievementCard {
+    padding: var(--spacing-md);
+  }
+  
+  .iconContainer {
+    width: 44px;
+    height: 44px;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .icon {
+    font-size: var(--font-size-xl);
+  }
+  
+  .yearBadge {
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
+  
+  .achievementTitle {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .achievementDescription {
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* Accessibility: Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .achievementCard {
+    transition: none;
+  }
+  
+  .achievementCard.visible {
+    animation: none;
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .achievementCard:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,335 @@
+/* Skills Section Styles */
+
+.skillsSection {
+  padding: var(--spacing-4xl) 0;
+  background: linear-gradient(
+    to bottom,
+    var(--color-background) 0%,
+    var(--color-surface) 100%
+  );
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+/* Section Title */
+.title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+/* Skills Grid Layout */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .skillsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+  }
+}
+
+/* Individual Skill Item */
+.skillItem {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out),
+              opacity var(--duration-normal) var(--ease-out);
+  
+  /* 
+    Hover effect: Scale up and add stronger shadow
+    Uses transform for GPU-accelerated animation
+  */
+  
+  /* Performance optimization: Use will-change for animated properties */
+  /* Only transform and opacity for better performance than 'all' */
+  will-change: transform, opacity;
+}
+
+.skillItem:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+}
+
+/* 
+  Visible state animation
+  Triggered when Intersection Observer detects element in viewport
+  Uses fadeIn animation with staggered delays set inline
+*/
+.skillItem.visible {
+  animation: fadeIn var(--duration-slow) var(--ease-out) forwards;
+}
+
+/* Skill Header - Name and Level */
+.skillHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.skillName {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.skillLevel {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+/* Progress Bar Container */
+.skillBarContainer {
+  width: 100%;
+  height: 12px;
+  background-color: var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+/* 
+  Progress Bar Fill
+  Animates from 0% to skill level percentage
+  Color-coded by category with gradient fills
+*/
+.skillBarFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  width: 0;
+  transition: width var(--duration-normal) var(--ease-out),
+              filter var(--duration-normal) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+  
+  /* Performance optimization: Optimize width animation */
+  will-change: width;
+}
+
+/* 
+  Animate class triggers the width animation
+  Uses CSS custom property --skill-level set inline
+  Animation fills the bar from left to right
+*/
+.skillBarFill.animate {
+  animation: fillBar 1s var(--ease-out) forwards;
+}
+
+/* 
+  Keyframe animation for skill bar fill
+  Animates width from 0 to the skill level percentage
+*/
+@keyframes fillBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--skill-level);
+  }
+}
+
+/* 
+  Category Color Coding with Gradient Fills
+  Each category gets a unique gradient for visual distinction
+*/
+
+/* Frontend Skills - Primary gradient (Indigo to Pink) */
+.category-frontend {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
+}
+
+/* Backend Skills - Secondary gradient (Purple to Indigo) */
+.category-backend {
+  background: linear-gradient(
+    90deg,
+    var(--color-tertiary) 0%,
+    var(--color-primary) 100%
+  );
+}
+
+/* Other Skills - Success gradient (Green variations) */
+.category-other {
+  background: linear-gradient(
+    90deg,
+    var(--color-success) 0%,
+    #34d399 100%
+  );
+}
+
+/* 
+  Hover effect on skill bar
+  Adds a subtle shine/shimmer effect
+*/
+.skillItem:hover .skillBarFill {
+  filter: brightness(1.1);
+}
+
+/* 
+  Add animated shimmer effect to filled bars
+  Creates a moving highlight across the bar
+*/
+.skillBarFill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+  animation-delay: 1s;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .skillsSection {
+    padding: var(--spacing-3xl) 0;
+  }
+  
+  .title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .subtitle {
+    font-size: var(--font-size-base);
+  }
+  
+  .skillItem {
+    padding: var(--spacing-md);
+  }
+  
+  .skillName {
+    font-size: var(--font-size-base);
+  }
+  
+  /* Simplify animations on mobile */
+  .skillItem:hover {
+    transform: translateY(-2px) scale(1.01);
+  }
+  
+  /* Optimize skill bar for mobile */
+  .skillBarContainer {
+    height: 10px;
+  }
+  
+  /* Reduce shimmer effect on mobile */
+  .skillBarFill::after {
+    animation: none;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .skillsSection {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .subtitle {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .skillsGrid {
+    gap: var(--spacing-md);
+  }
+  
+  .skillItem {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .skillName {
+    font-size: var(--font-size-sm);
+  }
+  
+  .skillLevel {
+    font-size: var(--font-size-xs);
+  }
+  
+  .skillBarContainer {
+    height: 8px;
+  }
+}
+
+/* Accessibility: Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .skillItem {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .skillBarFill {
+    animation: none !important;
+  }
+  
+  .skillBarFill.animate {
+    width: var(--skill-level);
+  }
+  
+  .skillBarFill::after {
+    animation: none !important;
+  }
+}
