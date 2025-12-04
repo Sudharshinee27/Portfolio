@@ -378,7 +378,7 @@ export function BackgroundPattern() {
         fill
         quality={100}
         style={{
-          objectFit: 'repeat', // Tile the pattern
+          objectFit: 'cover', // Cover the area
           opacity: 0.1,
         }}
       />
