@@ -26,7 +26,7 @@ export default function Experience() {
         <div className={styles.header}>
           <h2 id="experience-heading" className={styles.title}>Professional Experience</h2>
           <p className={styles.subtitle}>
-            My journey in software development and the roles I've held
+            My journey in software development and the roles I&apos;ve held
           </p>
         </div>
 

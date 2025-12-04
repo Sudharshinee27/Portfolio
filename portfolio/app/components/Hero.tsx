@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styles from './Hero.module.css';
 
 // TypeScript interfaces for Hero component props
@@ -79,10 +80,12 @@ export default function Hero({ name, title, description, contactInfo }: HeroProp
         <div className={styles.heroVisual} aria-hidden="true">
           <div className={styles.profileCircle}>
             <div className={styles.profileInner}>
-              <img
-                src="\image\WhatsApp Image 2025-12-03 at 17.02.15_f9562f4c.jpg"
+              <Image
+                src="/image/WhatsApp Image 2025-12-03 at 17.02.15_f9562f4c.jpg"
                 alt="Sudharshinee S K"
                 className={styles.profileImage}
+                width={300}
+                height={300}
               />
             </div>
           </div>

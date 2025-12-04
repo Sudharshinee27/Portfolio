@@ -168,14 +168,13 @@ export const projectsData: Project[] = [
     id: 'project-6',
     title: 'Fitness Tracking App',
     description: 'Mobile-responsive fitness tracking application with workout plans and progress monitoring',
-    technologies: ['React Na
+    technologies: ['React Native', 'Node.js', 'MongoDB', 'Express', 'Chart.js'],
+    highlights: [
+      'Custom workout plan generator based on user goals',
+      'Progress tracking with visual charts and statistics',
+      'Social features for sharing achievements',
+      'Integration with fitness wearables',
+      'Nutrition tracking and meal planning'
+    ]
   }
 ];
-g'
-    ] plannin and mealion trackingit 'Nutrles',
-     tness wearabith fiation w  'Integrts',
-    ievemenring achfor shaeatures  'Social fics',
-     tistrts and staal chasuwith viracking  tgress   'Pro   s',
- user goalonr based ton genera workout pla    'Customs: [
-  ighlight  h
-  s'],t.jess', 'Char'ExprDB',  'Mongo'Node.js',e', tiv
